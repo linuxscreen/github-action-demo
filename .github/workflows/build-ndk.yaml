@@ -73,10 +73,15 @@ jobs:
         with:
             name: project-archive
             path: project.zip
-
+      - name: Create Tag
+        uses: mathieudutour/github-tag-action@v5.6
+        with:
+            github_token: ${{ secrets.MY_GITHUB_TOKEN }}
+            custom_tag: v1.0.0
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
+            tag_name: ${{ github.ref }}
             files: project.zip
         env:
             GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
