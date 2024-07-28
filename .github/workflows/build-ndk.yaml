@@ -41,7 +41,7 @@ jobs:
         run: |
           pip3 install toml
           pwd
-          python3 build/patch.py
+          python3 ZeroTierOneForMagisk/build/patch.py
 
       - name: Build for AArch64
         run: |
