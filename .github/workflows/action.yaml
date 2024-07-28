@@ -1,0 +1,11 @@
+on: push
+
+jobs:
+    job:
+        runs-on: ubuntu
+        steps:
+            - run: node --version
+        
+
+
+
