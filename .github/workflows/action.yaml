@@ -1,8 +1,8 @@
 on: push
 
 jobs:
-    job:
-        runs-on: ubuntu
+    job1:
+        runs-on: ubuntu-latest
         steps:
             - run: node --version
         
