@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: 获取仓库内容
         uses: actions/checkout@v4
+        with:
+            path: ZeroTierOneForMagisk
+
       - name: Checkout ZeroTierOne
         uses: actions/checkout@v4
         with:
@@ -59,11 +62,11 @@ jobs:
           cd ..
 
           mkdir -p zerotier/lib
-          cp ZeroTierOne/zerotier-one zerotier
-          cp $NDK_ROOT/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so zerotier/lib
+          cp ZeroTierOne/zerotier-one ZeroTierOneForMagisk/zerotier
+          cp $NDK_ROOT/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so ZeroTierOneForMagisk/zerotier/lib
     
       - name: Archive project
-        run: zip -r project.zip .  # 创建项目的压缩包
+        run: zip -r project.zip ZeroTierOneForMagisk  # 创建项目的压缩包
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
