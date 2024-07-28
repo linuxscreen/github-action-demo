@@ -60,13 +60,13 @@ jobs:
           make clean
           make --silent -j $(nproc) ZT_DEBUG=0 ZT_SSO_SUPPORTED=0 CC=$CC CXX=$CXX LDFLAGS="-L../libnatpmp" DEFS="-I../libnatpmp -D__GLIBC__=0"
           cd ..
-
-          mkdir -p zerotier/lib
-          cp ZeroTierOne/zerotier-one ZeroTierOneForMagisk/zerotier
-          cp $NDK_ROOT/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so ZeroTierOneForMagisk/zerotier/lib
+          cd ZeroTierOneForMagisk
+          mkdir -p lib
+          cp ../ZeroTierOne/zerotier-one zerotier
+          cp $NDK_ROOT/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so lib
     
       - name: Archive project
-        run: zip -r project.zip ZeroTierOneForMagisk  # 创建项目的压缩包
+        run: zip -r project.zip .  # 创建项目的压缩包
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
