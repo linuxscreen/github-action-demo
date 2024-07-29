@@ -36,7 +36,7 @@ jobs:
       - name: Patch ZeroTier for Cross-Compile
         run: |
           pip3 install toml
-          python3 build/patch.py
+          python3 ZeroTierOneForMagisk/build/patch.py
       - name: Build for AArch64
         run: |
           CC=aarch64-linux-gnu-gcc
