@@ -1,0 +1,29 @@
+name: build duo-website
+
+on:
+  workflow_dispatch:
+#  push:
+#    branches:
+#      - main
+
+jobs:
+  build-ssh:
+    permissions: write-all
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: ssh to server
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+#          script: |
+#            pwd
+      - name: apply patch & build
+        run: |
+          ls -al
+#          cd duo-website
+#          echo ${{ env.VERSION }}
+#          docker ps
