@@ -23,7 +23,7 @@ jobs:
 #            pwd
       - name: apply patch & build
         run: |
-          ls -al
+          cd /home/ubuntu/docker-compose && docker compose -f duo.yaml up -d --pull always
 #          cd duo-website
 #          echo ${{ env.VERSION }}
 #          docker ps
