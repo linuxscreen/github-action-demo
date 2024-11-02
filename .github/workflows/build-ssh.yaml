@@ -1,4 +1,4 @@
-name: build duo-website
+name: build ssh
 
 on:
   workflow_dispatch:
